@@ -11,7 +11,7 @@ const app = express();
 
 mongoose.Promise = global.Promise;
 mongoose.connect(dbConfig.db,{
-    userNewUrlParser: true,
+    //userNewUrlParser: true,
     useUnifiedTopology: true
 }).then(
     () =>{

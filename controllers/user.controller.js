@@ -1,11 +1,11 @@
-const bcryptjs = require('bcryptjs');
-const userService = require('userService');
+const bcrypt = require('bcrypt');
+const userService = require('../services/users.services');
 
 exports.register = (req,res,next)=>{
     const {password} = req.body;
-    const salt = bcryptjs.genSalt(10);
+    const salt = bcrypt.genSalt(10);
 
-    req.body.password = bcryptjs.hashSync(password,salt);
+    req.body.password = bcrypt.hashSync(password,salt);
 
     userService.register(req,res,(error,result)=>{
         if(err){
